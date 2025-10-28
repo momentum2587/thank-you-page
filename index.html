@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thanks — Momentum</title>
   <style>
-    :root{
+    :root {
       --bg:#000000;
       --text:#ffffff;
       --muted:#b1b1b1;
@@ -13,69 +13,70 @@
       --card:#111111;
       --radius:14px;
     }
-    html,body{
-      margin:0;padding:0;
-      background:var(--bg);color:var(--text);
+
+    html, body {
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--text);
       font:16px/1.6 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
 
-    .wrap{
-      max-width:800px;margin:80px auto;padding:0 24px;text-align:center;
+    .wrap {
+      max-width:680px;
+      padding:40px 24px;
+      margin:0 auto;
+      text-align:left;
     }
 
-    .logo{
+    .logo {
+      height:42px;
+      margin:6px 0 36px 0;
       display:block;
-      margin:0 auto 30px auto;
-      max-width:240px;
     }
 
-    h1{
-      font-size:clamp(26px,4vw,40px);
-      margin:0 0 20px;
-      font-weight:700;
-      letter-spacing:-0.5px;
+    h1 {
+      margin:0 0 16px 0;
+      font-size:28px;
+      font-weight:600;
       color:var(--text);
     }
 
-    .card{
+    .card {
+      margin-top:16px;
+      padding:18px;
       background:var(--card);
       border:1px solid #222;
       border-radius:var(--radius);
-      padding:22px 26px;
-      font-size:18px;
-      display:inline-block;
-      box-shadow:0 2px 8px rgba(0,0,0,0.4);
-      color:var(--text);
     }
 
-    .sub{
-      margin:18px 0 0;
-      color:var(--muted);
+    p {
       font-size:14px;
-    }
-
-    @media(max-width:520px){
-      .wrap{margin:60px auto;}
-      .card{font-size:16px;padding:18px 20px;}
+      color:var(--muted);
     }
   </style>
 </head>
-<body>
-  <main class="wrap">
-    <img class="logo" src="https://48447428.fs1.hubspotusercontent-na1.net/hubfs/48447428/New_Momentum_Logo.png" alt="Momentum Logo">
-    <h1>Thanks — your response has been recorded.</h1>
-    <div class="card" id="msg">Thanks for letting us know.</div>
-    <p class="sub">You can close this tab now.</p>
 
-    <!-- Invisible pixel triggers Zapier silently -->
-    <img id="zapPixel" src="" alt="" width="1" height="1" style="opacity:0;position:absolute;left:-9999px;" />
-  </main>
+<body>
+  <div class="wrap">
+    <img class="logo"
+      src="https://48447428.fs1.hubspotusercontent-na1.net/hubfs/48447428/New_Momentum_Logo.png"
+      alt="Momentum" />
+
+    <h1>Thanks — your response has been recorded.</h1>
+
+    <div class="card" id="msg">Saving…</div>
+    <p>You can close this tab now.</p>
+
+    <img id="zapPixel" src="" alt="" width="1" height="1"
+         style="opacity:0;position:absolute;left:-9999px;" />
+  </div>
 
   <script>
     (function () {
       const ZAPIER_HOOK = "https://hooks.zapier.com/hooks/catch/18413817/uim4lmc/";
       const qs = new URLSearchParams(location.search);
-      const attended  = (qs.get('attended')  || '').toLowerCase();
+      const attended = (qs.get('attended') || '').toLowerCase();
       const potential = (qs.get('potential') || '').toLowerCase();
 
       let text = "Thanks for letting us know.";
